@@ -16,7 +16,7 @@ class Splash extends StatefulWidget {
 class _SplashState extends State<Splash> {
 
 
-  
+
   @override
   void initState() {
     // TODO: implement initState
@@ -33,13 +33,13 @@ class _SplashState extends State<Splash> {
 
   @override
   Widget build(BuildContext context) {
-    
+
     return Scaffold(
        backgroundColor: Colors.white,
       body: Center(
         child: Container(
-          width: 300,
-          height: 300,
+          width: 400,
+          height: 400,
           decoration: const BoxDecoration(
             color: Colors.white,
             image: DecorationImage(
