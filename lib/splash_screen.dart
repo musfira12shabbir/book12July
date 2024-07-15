@@ -1,10 +1,9 @@
 import 'dart:async';
-
-import 'package:eproject/Register.dart';
+import 'package:eproject/MVC/register_screen/register_controller.dart';
+import 'package:eproject/login.dart';
+import 'package:eproject/user_dashboard.dart';
 import 'package:flutter/material.dart';
 
-import '../login.dart';
-import '../main.dart';
 
 
 class Splash extends StatefulWidget {
@@ -17,15 +16,24 @@ class Splash extends StatefulWidget {
 class _SplashState extends State<Splash> {
 
 
+  
   @override
   void initState() {
     // TODO: implement initState
-    Timer(const Duration(milliseconds: 3000),  () => Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const RegisterScreen(),)),);
+    UserRegisterLogin.userCredGet().then((val){
+      if(val != null){
+        Timer(const Duration(milliseconds: 2000), () => Navigator.push(context,MaterialPageRoute(builder: (context) => const UserDashBoard(),)),);
+      }
+      else{
+        Timer(const Duration(milliseconds: 2000), () => Navigator.push(context,MaterialPageRoute(builder: (context) => const LoginScreen(),)),);
+      }
+    });
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
+    
     return Scaffold(
        backgroundColor: Colors.white,
       body: Center(

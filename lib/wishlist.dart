@@ -1,7 +1,6 @@
 import 'package:eproject/description_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:iconsax/iconsax.dart';
 
 
 class WishListScreen extends StatefulWidget {
@@ -26,7 +25,6 @@ class _WishListScreenState extends State<WishListScreen> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        automaticallyImplyLeading: false,
         elevation: 0,
         backgroundColor: Colors.white,
         title: Text("Your WishList",style: TextStyle(color: Colors.black),),

@@ -1,11 +1,9 @@
-import 'dart:io';
-
-import 'package:eproject/Register.dart';
-import 'package:eproject/user_dashboard.dart';
+import 'package:eproject/MVC/register_screen/register_model.dart';
+import 'package:eproject/register_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:image_picker/image_picker.dart';
+
+import 'MVC/register_screen/register_controller.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -16,7 +14,11 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
 
-  File? userProfile;
+
+  final TextEditingController userEmail = TextEditingController();
+  final TextEditingController userPassword = TextEditingController();
+  UserRegisterLogin userRegisterLogin = UserRegisterLogin();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,7 +47,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
                       const SizedBox(height: 20,),
 
-                      Text("Login.", style: TextStyle(color: Colors.black, fontWeight: FontWeight.w400),),
+                     const Text("Login.", style: TextStyle(color: Colors.black, fontWeight: FontWeight.w400),),
 
                       const SizedBox(
                         height: 20,
@@ -55,6 +57,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       Container(
                         margin: const EdgeInsets.symmetric(horizontal: 10),
                         child: TextFormField(
+                          controller: userEmail,
                           decoration: const InputDecoration(
                               prefixIcon: Icon(Iconsax.message,color: Colors.black,),
                               hintText: "Enter Your Email..",
@@ -78,6 +81,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       Container(
                         margin: const EdgeInsets.symmetric(horizontal: 10),
                         child: TextFormField(
+                          controller: userPassword,
                           decoration: const InputDecoration(
                               prefixIcon: Icon(Iconsax.key1,color: Colors.black,),
                               hintText: "Enter Your Password..",
@@ -99,16 +103,23 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
 
                       ElevatedButton(onPressed: (){
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => const UserDashBoard(),));
+                          userRegisterLogin.userLogin(LoginModel(
+                            userEmail: userEmail.text,
+                            userPassword: userPassword.text
+                          ), context);
                       }, style: const ButtonStyle(
-                          backgroundColor: MaterialStatePropertyAll(Colors.black)
+                          backgroundColor: WidgetStatePropertyAll(Colors.black)
                       ), child: const Text("Login",style: TextStyle(color: Colors.white),),),
 
                       const SizedBox(
                         height: 10,
                       ),
 
-
+                      GestureDetector(
+                          onTap: (){
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => const RegisterScreen(),));
+                          },
+                          child: const Text("Don't have an Account. Create One.", style: TextStyle(color: Colors.black, fontWeight: FontWeight.w400),)),
 
                     ],
                   ),

@@ -1,14 +1,11 @@
-import 'package:eproject/Register.dart';
-import 'package:eproject/constants/texttheme_file.dart';
-import 'package:eproject/description_screen.dart';
-import 'package:eproject/firebase_options.dart';
-import 'package:eproject/umar/Splash_Screen.dart';
-import 'package:eproject/user_dashboard.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-void main() async{
 
+import 'package:eproject/firebase_options.dart';
+import 'package:eproject/splash_screen.dart';
+import 'package:eproject/login.dart';
+import 'package:firebase_core/firebase_core.dart';
+
+import 'package:flutter/material.dart';
+void main() async{
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(const MyApp());
@@ -20,15 +17,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        textTheme: textTheme
-      ),
-      darkTheme: ThemeData(
-        textTheme: textTheme
-      ),
-      home: const Splash(),
+      home: Splash(),
     );
   }
 }

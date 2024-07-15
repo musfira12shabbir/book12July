@@ -19,7 +19,7 @@ class _CartScreenState extends State<CartScreen> {
     'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGpR-ADg8E3M_p6k5QGiUCg2Klh78_lr05Mw&usqp=CAU',
     'https://assets.penguinrandomhouse.com/wp-content/uploads/2021/10/07211143/PRH_xmas-romance_HP_4-BOOKS_1200x628-839x439.jpg'];
 
-  List bookCate = ["Islamic Books", "Motivational", "Adventure","poetry","Magic"]  
+  List bookCate = ["Islamic Books", "Motivational", "Adventure","poetry","Magic"];
 
   List bookName = [ "Tafseel", "Rich dad poor dad", "The beauti of the beast","John alia","Kala Jadu"];
 
